@@ -1,0 +1,700 @@
+C3 = U%*%S^2%*%t(U)#
+C3
+dim(U); dim(S); dim(V)
+S;V
+C2
+S;V;S%*%V
+S%*%t(V)
+1/(n-1)*S%*%t(V)
+1/(n-1)*S%*%V
+V
+U%*%1/(n-1)*S%*%V
+U%*%(1/(n-1)*S)%*%V
+U%*%S%*%V
+C2#
+var(X)
+pca = svd(t(X))#
+U = pca$u; S = diag(pca$d); V = pca$v#
+dim(U); dim(S); dim(V)
+C3 = U%*%S^2%*%t(U)#
+C3
+C3 = 1/(n-1)*U%*%S^2%*%t(U)#
+C3
+C2
+pca = svd(X)#
+U = pca$u; S = diag(pca$d); V = pca$v#
+dim(U); dim(S); dim(V)#
+C3 = 1/(n-1)*t(U)%*%S^2%*%U#
+C3
+C3 = 1/(n-1)*S^2%*%t(U)%*%U#
+C3
+dim(U); dim(S); dim(V)
+C3 = 1/(n-1)*V%*%S^2%*%t(V)#
+C3
+pca = svd(t(X))#
+U = pca$u; S = diag(pca$d); V = pca$v#
+dim(U); dim(S); dim(V)#
+C3 = 1/(n-1)*U%*%S^2%*%t(U)#
+C3
+C1 == C2
+C2
+C1
+round(C1, 4) == round(C2, 4)
+round(C1, 9) == round(C2, 9)
+round(C1, 12) == round(C2, 12)
+round(C1, 15) == round(C2, 15)
+X2 = c()#
+for(i in 1:3){#
+	X2[,i] = 2*X[,i] +rnorm(n)#
+}
+X2 = X#
+X2[,4] = rnorm(n)#
+for(i in 1:3){#
+	X2[,i] = 2*X[,i] +rnorm(n)#
+}
+X2 = X#
+X2[,4] = rnorm(n)#
+for(i in 1:3){#
+	X2[,i] = 2*X[,i] +rnorm(n)#
+}#
+#
+pca2 = svd(t(X2))#
+U2 = pca$u; S2 = diag(pca$d); V2 = pca$v#
+C5 = 1/(n-1)*U2%*%S2^2%*%t(U2)#
+C5#
+cor(X2)
+pca2 = svd(t(X2))#
+U2 = pca2$u; S2 = diag(pca2$d); V2 = pca2$v#
+C5 = 1/(n-1)*U2%*%S2^2%*%t(U2)#
+C5#
+cor(X2)
+pca1 = svd(t(X))#
+U1 = pca1$u; S1 = diag(pca1$d); V1 = pca1$v#
+C3 = 1/(n-1)*U1%*%S1^2%*%t(U1)#
+C1; C3
+X2
+pca2 = svd(t(X2))#
+U2 = pca2$u; S2 = diag(pca2$d); V2 = pca2$v#
+C5 = 1/(n-1)*U2%*%S2^2%*%t(U2)#
+C5#
+cor(X2)
+pca1 = svd(X)#
+U = pca1$u; S = diag(pca1$d); V = pca1$v#
+C4 = 1/(n-1)*V%*%S^2%*%t(V)#
+C4, cor(X)
+C4; cor(X)
+X2 = scale(X2)#
+pca2 = svd(t(X2))#
+U2 = pca2$u; S2 = diag(pca2$d); V2 = pca2$v#
+C5 = 1/(n-1)*U2%*%S2^2%*%t(U2)#
+C5#
+cor(X2)
+CC1 = c()#
+for(i in 1:nrow(C1)){#
+	CC1 = c(CC1, cor(C1[i,], C5[i,]))#
+}#
+#
+CC2 = diag(C3%*%t(C6))#
+CC1; CC2
+C6 = 1/(n-1)*U2%*%S2^2%*%t(U2)#
+C5; C6
+CC1 = c()#
+for(i in 1:nrow(C1)){#
+	CC1 = c(CC1, cor(C1[i,], C5[i,]))#
+}#
+#
+CC2 = diag(C3%*%t(C6))#
+CC1; CC2
+CC2 = diag(scale(C3)%*%t(scale(C6))#
+CC1; CC2
+CC2 = diag(scale(C3)%*%t(scale(C6)))#
+CC1; CC2
+CC2 = diag(1/3*scale(C3)%*%t(scale(C6)))#
+CC1; CC2
+CC2 = diag(1/3*C3%*%t(C6))#
+CC1; CC2
+CC2 = 1/3*scale(C3)%*%t(sclae(C6))#
+CC1; CC2
+CC2 = 1/3*scale(C3)%*%t(scale(C6))#
+CC1; CC2
+CC2 = 1/3*C3%*%t(C6)#
+CC1; CC2
+CC2 = 1/3*scale(C3)%*%scale(t(C6))#
+CC1; CC2
+var(C1)
+sd(C1)
+apply(C1, 2, sd)
+CC2 = 1/3*C1%*%solve(var(C1)%*%vat(C5))%*%t(C5)#
+CC1; CC2
+CC2 = 1/3*C1%*%solve(var(C1)%*%var(C5))%*%t(C5)#
+CC1; CC2
+olve(var(C1)%*%var(C5))
+solve(var(C1)%*%var(C5))
+var(C1)%*%var(C5)
+bigS = var(C1)%*%t(var(C5))#
+solve(bigS)
+bigS
+bigS = diag(apply(C1,2,sd))%*%diag(apply(C5,2,sd))#
+bigS; solve(bigS)
+CC2 = 1/3*C1%*%solve(bigS)%*%t(C5)#
+CC1; CC2
+1000-81
+81*3
+1000 - 243
+9^3
+1000 - 729
+81*3
+81*9
+9^3+243*3
+9^3+243
+1000 - 972
+P0 = 9^3
+P1 = 243
+1000 - P0-P1
+(1000 - P0-P1)/4
+2495+222.18
+4325.80 - 2495+222.18
+4325.80 - (2495+222.18)
+13*22+3+11
+7.4*5
+7.2*5
+11.4*5
+1.8*5
+5*38
+5*3.8
+(0.15*9.81)/0.1015
+(0.2*9.81)/0.1116
+6^3
+5/36
+25/216
+0.25*85 + 0.25*92
+Path = '/Users/fredcommo/Documents/Projet Safir/Arrays Infos'#
+gcFile = '/GenomeWideSNP_6.cn.na32.GCpercent.txt'#
+gcPercent <- read.csv(paste(Path, gcFile, sep = ''), header = TRUE, sep = '\t')#
+#
+chrLen <- read.table('/Users/fredcommo/Documents/Projet Safir/Arrays Infos/human.chrom.info.hg19.FC.txt', header = TRUE, sep = "\t")#
+cumLen <- cumsum(chrLen$length)*1e3#
+cumLen <- c(0, cumLen[-length(cumLen)])
+head(gcPercent)
+gPosition = c()#
+for (i in 1:24)#
+	gPosition <- c(gPosition, rep(cumLen[i], length(which(gcPercent$ChrNum==i))))#
+gPosition <- gcPercent$ChrStart + gPosition#
+#
+plot(gcPercent$ChrNum, gPosition)
+length(which(is.na(gcPercent$ChrNum)))
+which(is.na(gcPercent$ChrNum))
+which(is.na(gcPercent$ChrNum)); length(gcPercent$ChrNum)
+gPosition = c()#
+for (i in 1:24)#
+	gPosition <- c(gPosition, rep(cumLen[i], length(which(gcPercent$ChrNum==i))))#
+gPosition <- c(gPosition, rep(NA, which(is.na(gcPercent$ChrNum))))#
+#
+gPosition <- gcPercent$ChrStart + gPosition#
+#
+plot(gcPercent$ChrNum, gPosition)
+gPosition = c()#
+for (i in 1:24)#
+	gPosition <- c(gPosition, rep(cumLen[i], length(which(gcPercent$ChrNum==i))))#
+nNA = length(which(is.na(gcPercent$ChrNum)))#
+gPosition <- c(gPosition, rep(NA, nNA))#
+#
+gPosition <- gcPercent$ChrStart + gPosition
+plot(gcPercent$ChrNum, gPosition)
+plot(gcPercent$ChrNum, gPosition, pch = '-')
+end <- c()#
+for (i in 1:24)#
+	end <- c(end, max(gPositon[which(gcPercent$ChrNum==i)]))#
+plot(gcPercent$ChrNum, gPosition, cex = 0.1)#
+abline(h = end, col = 'red')
+end <- c()#
+for (i in 1:24)#
+	end <- c(end, max(gPosition[which(gcPercent$ChrNum==i)]))
+abline(h = end, col = 'red')
+plot(gcPercent$ChrNum, gPosition, cex = 0.1)#
+abline(h = end, col = 'red', lwd = 0.1)
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)#
+for(i in chrList){#
+	if(all(c(i-1, i) %in% chrList)){#
+		last = c(max(gPosition[which(gcPercent$ChrNum == i-1)], na.rm = TRUE))#
+		first = c(min(gPosition[gcPercent$ChrNum == i)], na.rm = TRUE))#
+		overlap <- c(overlap, last>first)#
+		}#
+	}#
+overlap
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)#
+for(i in chrList){#
+	if(all(c(i-1, i) %in% chrList)){#
+		last = max(gPosition[which(gcPercent$ChrNum == i-1)], na.rm = TRUE)#
+		first = min(gPosition[gcPercent$ChrNum == i)], na.rm = TRUE)#
+		overlap <- c(overlap, last>first)#
+		}#
+overlap
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)#
+for(i in chrList){#
+	if(all(c(i-1, i) %in% chrList)){#
+		last = max(gPosition[which(gcPercent$ChrNum == i-1)], na.rm = TRUE)#
+		first = min(gPosition[which(gcPercent$ChrNum == i)], na.rm = TRUE)#
+		overlap <- c(overlap, last>first)#
+		}#
+overlap
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)#
+for(i in chrList)#
+	if(all(c(i-1, i) %in% chrList)){#
+		last = max(gPosition[which(gcPercent$ChrNum == i-1)], na.rm = TRUE)#
+		first = min(gPosition[which(gcPercent$ChrNum == i)], na.rm = TRUE)#
+		overlap <- c(overlap, last>first)#
+		}#
+overlap
+chrLen
+chrLen <- read.table('/Users/fredcommo/Documents/Projet Safir/Arrays Infos/human.chrom.info.hg19.FC.txt', header = TRUE, sep = "\t")#
+cumLen <- cumsum(chrLen$length)*1e3#
+cumLen <- c(0, cumLen[-length(cumLen)])
+chrLen <- read.table('/Users/fredcommo/Documents/Projet Safir/Arrays Infos/human.chrom.info.hg19.FC.txt', header = TRUE, sep = "\t")
+head(chrLen)
+cumLen <- cumsum(chrLen$length)
+cumLen <- cumsum(as.numeric(chrLen$length))
+cumLen
+cumLen <- c(0, cumLen[-length(cumLen)])#
+#
+gPosition = c()#
+for (i in 1:24)#
+	gPosition <- c(gPosition, rep(cumLen[i], length(which(gcPercent$ChrNum==i))))#
+nNA = length(which(is.na(gcPercent$ChrNum)))#
+gPosition <- c(gPosition, rep(NA, nNA))#
+#
+gPosition <- gcPercent$ChrStart + gPosition#
+#
+end <- c()#
+for (i in 1:24)#
+	end <- c(end, max(gPosition[which(gcPercent$ChrNum==i)]))#
+#
+plot(gcPercent$ChrNum, gPosition, cex = 0.1)#
+abline(h = end, col = 'red', lwd = 0.1)#
+#
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)#
+for(i in chrList)#
+	if(all(c(i-1, i) %in% chrList)){#
+		last = max(gPosition[which(gcPercent$ChrNum == i-1)], na.rm = TRUE)#
+		first = min(gPosition[which(gcPercent$ChrNum == i)], na.rm = TRUE)#
+		overlap <- c(overlap, last>first)#
+		}#
+overlap
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)#
+for(i in chrList)#
+	if(all(c(i-1, i) %in% chrList)){#
+		last = max(gPosition[which(gcPercent$ChrNum == i-1)], na.rm = TRUE)#
+		first = min(gPosition[which(gcPercent$ChrNum == i)], na.rm = TRUE)#
+		cat('Last:', last, 'First:', first, '\n')#
+		overlap <- c(overlap, last>first)#
+		}#
+overlap
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)#
+for(i in chrList)#
+	if(all(c(i-1, i) %in% chrList)){#
+		last = max(gPosition[which(gcPercent$ChrNum == i-1)], na.rm = TRUE)#
+		first = min(gPosition[which(gcPercent$ChrNum == i)], na.rm = TRUE)#
+		cat(i-1, 'Vs.', i, '\tLast:', last, '\tFirst:', first, '\n')#
+		overlap <- c(overlap, last>first)#
+		}#
+overlap
+chrList
+head(gcPercent)
+gcPercent = cbind.data.frame(gcPercent[,1:4], genomicPos = gPosition, gcPercent[,-c(1:4)])#
+head(gcPercent)
+write.table(gcPercent, 'GenomeWideSNP_6.cn.na32.GCpercent.txt', row.names = F, sep = '\t')
+getwd()
+Path = '/Users/fredcommo/Documents/Projet Safir/Arrays Infos'#
+gcFile = '/022060_4x180K_hg19_20110628_GCpercent.txt'#
+gcPercent <- read.csv(paste(Path, gcFile, sep = ''), header = TRUE, sep = '\t')#
+head(gcPercent)
+gcPercent = gcPercent[order(gcPercent$ChrNum, gcPercent$ChrStart),]#
+head(gcPercent)
+chrLen <- read.table('/Users/fredcommo/Documents/Projet Safir/Arrays Infos/human.chrom.info.hg19.FC.txt', header = TRUE, sep = "\t")#
+cumLen <- cumsum(as.numeric(chrLen$length))#
+cumLen <- c(0, cumLen[-length(cumLen)])#
+#
+gPosition = c()#
+for (i in 1:24)#
+	gPosition <- c(gPosition, rep(cumLen[i], length(which(gcPercent$ChrNum==i))))#
+#
+if(any(is.na(gcPercent$ChrNum))){#
+	nNA = length(which(is.na(gcPercent$ChrNum)))#
+	gPosition <- c(gPosition, rep(NA, nNA))#
+	}#
+gPosition <- gcPercent$ChrStart + gPosition#
+#
+end <- c()#
+for (i in 1:24)#
+	end <- c(end, max(gPosition[which(gcPercent$ChrNum==i)]))#
+#
+plot(gcPercent$ChrNum, gPosition, cex = 0.1)#
+abline(h = end, col = 'red', lwd = 0.1)
+overlap <- c()#
+chrList <- unique(gcPercent$ChrNum)#
+for(i in chrList)#
+	if(all(c(i-1, i) %in% chrList)){#
+		last = max(gPosition[which(gcPercent$ChrNum == i-1)], na.rm = TRUE)#
+		first = min(gPosition[which(gcPercent$ChrNum == i)], na.rm = TRUE)#
+		cat(i-1, 'Vs.', i, '\tLast:', last, '\tFirst:', first, '\n')#
+		overlap <- c(overlap, last>first)#
+		}#
+overlap
+head(gcPercent)
+gcPercent = cbind.data.frame(gcPercent[,(1, 3:5)], genomicPos = gPosition, GCpercent = gcPercent[,7])#
+head(gcPercent)
+gcPercent = cbind.data.frame(gcPercent[,c(1, 3:5)], genomicPos = gPosition, GCpercent = gcPercent[,7])#
+head(gcPercent)
+write.table(gcPercent, paste(Path, gcFile, sep = ''), row.names = F, sep = '\t')
+Test Agilent workflow#
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+f = getFile(); f#
+a = getAnnot(f); a#
+info = getAgilentInfo(f); info#
+X = getAgilentData(f); head(X)#
+flags = flagList(X)#
+length(flags)#
+X$gMedianSignal[flags] = X$rMedianSignal[flags] = NA#
+head(X); dim(X)
+Root = "/Users/fredcommo/Documents/Projet Safir/"
+Test Agilent workflow#
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+f = getFile(); f#
+a = getAnnot(f); a#
+info = getAgilentInfo(f); info#
+X = getAgilentData(f); head(X)#
+flags = flagList(X)#
+length(flags)#
+X$gMedianSignal[flags] = X$rMedianSignal[flags] = NA#
+head(X); dim(X)
+table(X$ChrNum)
+Test Agilent workflow#
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+f = getFile(); f#
+a = getAnnot(f); a#
+info = getAgilentInfo(f); info#
+X = getAgilentData(f); head(X)#
+flags = flagList(X)#
+length(flags)#
+X$gMedianSignal[flags] = X$rMedianSignal[flags] = NA#
+head(X); dim(X)#
+table(X$ChrNum)
+keepCol = c('ProbeName', 'ChrNum', 'ChrStart', 'gMedianSignal', 'rMedianSignal')#
+X2 <- X[,colnames(X %in% keepCol)]; head(X2); dim(X2)
+X2 <- X[,which(colnames(X %in% keepCol))]; head(X2); dim(X2)
+X2 <- X[ ,colnames(X) %in% keepCol]; head(X2); dim(X2)
+X3 <- nonDuplic(X2); head(X3); dim(X3)
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")
+X3 <- nonDuplic(X2); head(X3); dim(X3)
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")
+X3 <- nonDuplic(X2); head(X3); dim(X3)
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")
+X3 <- nonDuplic(X2); head(X3); dim(X3)
+X4 = addAnnot(X3); head(X4); dim(X4)
+a
+X4 = addAnnot(X3, a$platform); head(X4); dim(X4)
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")
+X4 = addAnnot(X3, a$platform); head(X4); dim(X4)
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")
+X4 = addAnnot(X3, a$platform); head(X4); dim(X4)
+f = getFile(); f#
+a = getAnnot(f); a#
+info = getAffyInfo(f); info#
+X = getAffyData(f); head(X)
+dim(X)
+X2 <- nonDuplic(X); head(X2)#
+dim(X2)
+X3 = addAnnot(X2, a$platform); head(X3)#
+dim(X3)
+Test global#
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+myObj = loadCGHObj.01()
+nonDuplic <- function(X){#
+	'#
+	Suppress the duplicated probes in a given array matrix, and return the curated matrix.#
+	The column containing the probeIds have to be named $ProbeName#
+	'#
+#
+	duplicIndex <- which(duplicated(X$ProbeName))#
+	if(length(duplicProbes>0)) {#
+		duplicProbes <- as.character(unique(X$ProbeName[duplicIndex]))#
+		sub = subset(X, X$ProbeName %in% duplicProbes, select = c(ChrNum, gMedianSignal, rMedianSignal))#
+		for(probe in duplicProbes){#
+			tmp = subset(sub, sub$ProbeName == probe, select = c(ChrNum, gMedianSignal, rMedianSignal))#
+			m = sapply(tmp[,-1], median, na.rm = TRUE)#
+			X$gMedianSignal[X$ProbeName == probe] = m[1]#
+			X$rMedianSignal[X$ProbeName == probe] = m[2]#
+			}#
+		X <- X[-duplicIndex,]#
+		}#
+	rownames(X) <- seq(1, nrow(X))#
+	return(X)#
+}
+head(X); dim(X)
+Test Agilent workflow#
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+f = getFile(); f#
+a = getAnnot(f); a#
+info = getAgilentInfo(f); info#
+X = getAgilentData(f); head(X)#
+flags = flagList(X)#
+length(flags)#
+X$gMedianSignal[flags] = X$rMedianSignal[flags] = NA#
+head(X); dim(X)#
+table(X$ChrNum)#
+#
+keepCol = c('ProbeName', 'ChrNum', 'ChrStart', 'gMedianSignal', 'rMedianSignal')#
+X <- X[ ,colnames(X) %in% keepCol]; head(X); dim(X)
+keepCol = c('ProbeName', 'ChrNum', 'ChrStart', 'gMedianSignal', 'rMedianSignal')#
+X <- X[ ,colnames(X) %in% keepCol]; head(X); dim(X)
+X2 <- syst.time(nonDuplic(X)); head(X2); dim(X2)
+X2 <- sys.time(nonDuplic(X)); head(X2); dim(X2)
+X2 <- Syst.time(nonDuplic(X)); head(X2); dim(X2)
+??syst.time
+??system
+X2 <- system.time(nonDuplic(X)); head(X2); dim(X2)
+X2 <- system.time(nonDuplic(X)); head(X2); dim(X2)
+system.time(X2 <- nonDuplic(X)); head(X2); dim(X2)
+nonDuplic <- function(X){#
+	'#
+	Suppress the duplicated probes in a given array matrix, and return the curated matrix.#
+	The column containing the probeIds have to be named $ProbeName#
+	'#
+#
+	duplicIndex <- which(duplicated(X$ProbeName))#
+	if(length(duplicProbes>0)) {#
+		duplicProbes <- as.character(unique(X$ProbeName[duplicIndex]))#
+		sub = subset(X, X$ProbeName %in% duplicProbes, select = c(ProbeName, gMedianSignal, rMedianSignal))#
+		for(probe in duplicProbes){#
+			tmp = subset(sub, sub$ProbeName == probe, select = c(gMedianSignal, rMedianSignal))#
+			m = sapply(tmp, median, na.rm = TRUE)#
+			X$gMedianSignal[X$ProbeName == probe] = m[1]#
+			X$rMedianSignal[X$ProbeName == probe] = m[2]#
+			}#
+		X <- X[-duplicIndex,]#
+		}#
+	rownames(X) <- seq(1, nrow(X))#
+	return(X)#
+}
+system.time(X2 <- nonDuplic(X)); head(X2); dim(X2)
+head(X)
+nonDuplic <- function(X){#
+	'#
+	Suppress the duplicated probes in a given array matrix, and return the curated matrix.#
+	The column containing the probeIds have to be named $ProbeName#
+	'#
+#
+	duplicIndex <- which(duplicated(X$ProbeName))#
+	if(length(duplicIndex>0)) {#
+		duplicProbes <- as.character(unique(X$ProbeName[duplicIndex]))#
+		sub = subset(X, X$ProbeName %in% duplicProbes, select = c(ProbeName, gMedianSignal, rMedianSignal))#
+		for(probe in duplicProbes){#
+			tmp = subset(sub, sub$ProbeName == probe, select = c(gMedianSignal, rMedianSignal))#
+			m = sapply(tmp, median, na.rm = TRUE)#
+			X$gMedianSignal[X$ProbeName == probe] = m[1]#
+			X$rMedianSignal[X$ProbeName == probe] = m[2]#
+			}#
+		X <- X[-duplicIndex,]#
+		}#
+	rownames(X) <- seq(1, nrow(X))#
+	return(X)#
+}
+system.time(X2 <- nonDuplic(X)); head(X2); dim(X2)
+Test Agilent workflow#
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+f = getFile(); f#
+a = getAnnot(f); a#
+info = getAgilentInfo(f); info#
+X = getAgilentData(f); head(X)#
+flags = flagList(X)#
+length(flags)#
+X$gMedianSignal[flags] = X$rMedianSignal[flags] = NA#
+head(X); dim(X)#
+table(X$ChrNum)
+Test Agilent workflow#
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+f = getFile(); f#
+a = getAnnot(f); a#
+info = getAgilentInfo(f); info#
+X = getAgilentData(f); head(X)#
+flags = flagList(X)#
+length(flags)#
+X$gMedianSignal[flags] = X$rMedianSignal[flags] = NA#
+head(X); dim(X)#
+table(X$ChrNum)
+Test Agilent workflow#
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+f = getFile(); f#
+a = getAnnot(f); a#
+info = getAgilentInfo(f); info#
+X = getAgilentData(f); head(X)#
+flags = flagList(X)#
+length(flags)#
+X$gMedianSignal[flags] = X$rMedianSignal[flags] = NA#
+head(X); dim(X)#
+table(X$ChrNum)
+Test Agilent workflow#
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+f = getFile(); f#
+a = getAnnot(f); a#
+info = getAgilentInfo(f); info#
+X = getAgilentData(f); head(X)#
+flags = flagList(X)#
+length(flags)#
+X$gMedianSignal[flags] = X$rMedianSignal[flags] = NA#
+head(X); dim(X)#
+table(X$ChrNum)
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")
+myObj = loadCGHObj.01()
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+myObj = loadCGHObj.01()
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("loadCGHObj.01.R")#
+#
+myObj = loadCGHObj.01()
+getInfo(myObj)
+getInfo(myObj, 'sampleId')
+getInfo(myObj, 'fileName')
+X = getCNset(myObj)#
+head(X)
+myObj = loadCGHObj.01()
+getInfo(myObj)#
+getInfo(myObj, 'sampleId')#
+getInfo(myObj, 'fileName')#
+#
+X = getCNset(myObj)#
+head(X)
+d1 = rnorm(100)
+D1 = list(d1)
+D1
+r1 = rnorm(20)#
+d1 = density(r1)#
+L = list(d1)
+L
+L[[1]]
+L[[1]]$x
+r2 = rnorm(30, 1)#
+d2 = density(r2)#
+L = list(L, d2)
+L
+r1 = rnorm(20)#
+d1 = density(r1)#
+L = list(d1)#
+#
+r2 = rnorm(30, 1)#
+d2 = density(r2)#
+L = as.list(L, d2)
+L
+as.list(L, d2)
+c(L, d2)
+L = list#
+#
+for(i in 1:4){#
+	r = rnorm(i*10, i, 1)#
+	d = density(r1)#
+	L = list(d)#
+	}
+L
+L = list#
+#
+for(i in 1:4){#
+	r = rnorm(i*10, i, 1)#
+	d = density(r1)#
+	L = list(L, d)#
+	}
+L
+L = list()#
+#
+for(i in 1:4){#
+	r = rnorm(i*10, i, 1)#
+	d = density(r1)#
+	L[i] = d#
+	}
+L
+L = list()#
+#
+for(i in 1:4){#
+	r = rnorm(i*10, i, 1)#
+	d = density(r1)#
+	L[[i]] = d#
+	}
+L
+plot(c(-1, 5), c(0,6))#
+for(i in 1:length(L)) lines(L[[i]]$x, L[[i]]$y)
+plot(c(-1, 5), c(0,1))
+i = 1#
+lines(L[[i]]$x, L[[i]]$y)
+i = 2#
+lines(L[[i]]$x, L[[i]]$y)
+L[[i]]
+L[[1]]
+L[[1]]$x
+L[[1]]$y
+L[[2]]$y
+L = list()#
+#
+for(i in 1:4){#
+	r = rnorm(i*10, i, 1)#
+	d = density(r)#
+	L[[i]] = d#
+	}#
+#
+plot(c(-1, 5), c(0,1))#
+for(i in 1:length(L))  lines(L[[i]]$x, L[[i]]$y)
+str(myObj)
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("NormCGHObj.R")#
+X2 = CyAdjust(X)
+head(X)
+myObj = loadCGHObj.01()#
+getInfo(myObj)#
+getInfo(myObj, 'sampleId')#
+getInfo(myObj, 'fileName')
+X = getCNset(myObj)#
+head(X)
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("NormCGHObj.R")#
+X2 = CyAdjust(X)
+head(X2)
+lrIni = log2(X$rMedianSignal/gMedianSignal)#
+lrAdj = X2$Log2Ratio#
+plot(lrIni, lrAdj)
+lrIni = log2(X$rMedianSignal/X$gMedianSignal)#
+lrAdj = X2$Log2Ratio#
+plot(lrIni, lrAdj)
+X3 = GCadjust(X2)
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("NormCGHObj.R")
+X3 = GCadjust(X2)
+lr = X2$Log2Ratio#
+	GC <- X2$GCpercent
+K = 2*ceiling(length(lr)/800) + 1
+K
+adjLr <- lr - loessFit(lr, GC)$fitted
+plot(lr, adgLr)
+plot(lr, adjLr)
+rmed <- runmed(adjLr, k = K)
+any(is.na(adjLr))
+any(is.na(lr))
+?runmed
+?insert
+setwd(paste(Root, 'Safir R Sources/', sep ='')); source('SourceCode.R'); source("NormCGHObj.R")
+X3 = GCadjust(X2)
